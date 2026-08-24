@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jinlan Zhao</title>
+  <meta name="description" content="Jinlan Zhao — composer, violinist, and interdisciplinary artist working across music technology, interactive systems, and performance. Based in Boston, MA.">
+  <meta name="author" content="Jinlan Zhao">
+  <meta name="keywords" content="Jinlan Zhao, composer, violinist, music technology, interactive systems, sound design, Berklee, L-Bow, emoChord">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jinlan Zhao">
+  <meta property="og:description" content="Composer, violinist, and interdisciplinary artist working across music technology, interactive systems, and performance.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.lannmusic.com">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.lannmusic.com">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── NAV ─────────────────────────────────────── -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <a class="navbar-brand" href="#home">Jinlan Zhao</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+            aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#works">Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────── -->
+  <section id="home" class="hero-section">
+
+    <!-- Exhibition title — discipline label sits above name as catalogue preface -->
+    <div class="hero-name-block">
+      <p class="hero-discipline">Art &middot; Music &middot; Interactive Systems</p>
+      <h1 class="hero-name">
+        <span class="hn-1">Jinlan</span>
+        <span class="hn-2">Zhao</span>
+      </h1>
+    </div>
+
+    <!-- Roles stacked — not inline -->
+    <ul class="hero-roles">
+      <li>I use music and technology to create experiences that invite people to notice the world differently.</li>
+    </ul>
+
+    <!-- Entry invitation — below roles, left-aligned (not sidebar) -->
+    <a href="#works" class="hero-enter-link">Enter&ensp;/&ensp;Selected Works <span class="hero-enter-arrow">↓</span></a>
+
+    <!-- Bottom: exhibition metadata only -->
+    <div class="hero-bottom">
+      <span class="hero-bottom-meta">Selected Works&ensp;2023–2026</span>
+      <span class="hero-bottom-meta">Boston, MA</span>
+    </div>
+
+    <!-- Architectural opening — tall, partially cropped by right edge -->
+    <div class="hero-frame" aria-hidden="true">
+      <img src="assets/Figure/L-Bow.jpg" class="hero-frame-img" alt="">
+      <!-- Museum label — inside frame, bottom-left corner -->
+      <div class="hero-frame-caption">
+        <span class="hero-frame-num">01</span>
+        <p class="hero-frame-title">L-Bow</p>
+        <span class="hero-frame-desc">Wearable Violin Interface</span>
+        <span class="hero-frame-year">2026</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ── WORKS — Three.js museum gallery ──────────────── -->
+  <section id="works" class="section-block">
+    <div class="container">
+      <div class="works-header">
+        <h2 class="section-title"><span class="section-num">01</span>Works</h2>
+        <p class="works-sub">Selected Projects&ensp;&mdash;&ensp;2023–2026</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filter works by category">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="systems">Systems</button>
+        <button class="filter-btn" data-filter="sound">Sound</button>
+        <button class="filter-btn" data-filter="performance">Performance</button>
+      </div>
+    </div>
+    <div id="gallery-wrap" aria-label="Works gallery — drag or scroll to explore"></div>
+    <p class="gallery-hint" aria-hidden="true">drag &nbsp;&middot;&nbsp; scroll &nbsp;&middot;&nbsp; click to open</p>
+  </section>
+
+  <!-- ── PUBLICATIONS ───────────────────────────────── -->
+  <section id="publications" class="section-block">
+    <div class="container">
+      <h2 class="section-title"><span class="section-num">02</span>Publications</h2>
+      <div class="pub-list">
+
+        <article class="pub-item">
+          <div class="pub-row">
+            <span class="pub-year">2026</span>
+            <span class="pub-venue accepted">DAFx</span>
+            <span class="pub-status">Accepted &mdash; Presenting at MIT, Sep 2026</span>
+          </div>
+          <p class="pub-title">Gesture-Driven Digital Audio Effects for Augmented Violin in a Unified Csound Environment</p>
+          <p class="pub-authors">Jinlan Zhao & Richard Boulanger</p>
+        </article>
+
+        <article class="pub-item">
+          <div class="pub-row">
+            <span class="pub-year">2026</span>
+            <span class="pub-venue accepted">ICSC</span>
+            <span class="pub-status">Accepted &mdash; Presenting at Trapani, Italy, Oct 2026</span>
+          </div>
+          <p class="pub-title">Embedding Live Machine Learning in Csound: Emotion-Driven Harmony via an ONNX-Runtime Opcode</p>
+          <p class="pub-authors">Jinlan Zhao, Li (Charlie) Shi & Richard Boulanger</p>
+        </article>
+
+        <article class="pub-item">
+          <div class="pub-row">
+            <span class="pub-year">2026</span>
+            <span class="pub-venue accepted">ICSC</span>
+            <span class="pub-status">Accepted &mdash; Presenting at Trapani, Italy, Oct 2026</span>
+          </div>
+          <p class="pub-title">One Environment, One Chain: Csound's arduinoRead as a Native Sensor Interface for Performance-Oriented IMU Control</p>
+          <p class="pub-authors">Jinlan Zhao & Richard Boulanger</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ─────────────────────────────────────── -->
+  <section id="about" class="section-block">
+    <div class="container">
+      <h2 class="section-title"><span class="section-num">03</span>About</h2>
+      <div class="about-grid reveal">
+
+        <div class="about-bio">
+          <p class="about-text">
+            Jinlan Zhao is a composer, violinist, and interdisciplinary artist working across music technology, interactive systems, and performance. Her practice explores how sound, gesture,
+            technology, and human perception shape one another. Working across composition, interactive installation, instrument design, creative coding, and spatial audio, she uses technology as a medium for
+            musical interaction, building experiences that invite people to notice the world differently.
+          </p>
+          <p class="about-text">
+            Trained first as a classical violinist, Jinlan expanded her practice from performance into composition, electronic production, and interactive media. Her
+            recent work includes wearable musical interfaces, machine-learning systems for music, multichannel composition, and interactive installation. She is currently studying Electronic
+            Production and Design at Berklee College of Music, where her work moves between artistic practice and technical experimentation.
+          </p>
+          <a href="assets/resume.pdf" class="about-cv-link" target="_blank" rel="noopener">
+            Check out resume here <span class="about-cv-arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="about-photo-wrap">
+          <img src="assets/Figure/portrait.jpg" alt="Portrait of Jinlan Zhao" class="about-photo">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ────────────────────────────────────── -->
+  <section id="contact" class="section-block">
+    <div class="container">
+      <div class="contact-grid reveal">
+
+        <!-- Left: identity + description -->
+        <div class="contact-left">
+          <h2 class="section-title"><span class="section-num">04</span>Contact</h2>
+          <p class="contact-name">Jinlan Zhao</p>
+          <p class="contact-desc">Interested in working together?<br>Please get in touch.</p>
+          <p class="contact-dateline">Boston, MA&ensp;&mdash;&ensp;2026</p>
+        </div>
+
+        <!-- Right: contact archive list -->
+        <div class="contact-right">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href="mailto:lannzh1126@gmail.com" class="contact-link">lannzh1126@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/jinlan-zhao-j1126/" class="contact-link" target="_blank" rel="noopener">/in/jinlan-zhao-j1126</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Instagram</span>
+            <a href="https://www.instagram.com/lann.zh/" class="contact-link" target="_blank" rel="noopener">@lann.zh</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">YouTube</span>
+            <a href="https://www.youtube.com/@lann.zh_music" class="contact-link" target="_blank" rel="noopener">@lann.zh_music</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>&copy; 2026 Jinlan Zhao</span>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── WORK MODAL ────────────────────────────────────── -->
+  <div id="work-modal" class="work-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="wm-inner">
+      <button id="wm-close" class="wm-close" aria-label="Close">&times;</button>
+      <span class="wm-category"></span>
+      <h3 class="wm-title"></h3>
+      <span class="wm-year"></span>
+      <p class="wm-desc"></p>
+      <a href="#" class="wm-link" target="_blank" rel="noopener">View Project →</a>
+    </div>
+  </div>
+
+  <!-- ── WITHIN CELLS INTERLINKED — Audio Detail Modal ── -->
+  <div id="wci-modal" class="wci-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="wci-panel">
+
+      <button id="wci-close" class="wci-close" aria-label="Close">&times;</button>
+
+      <!-- Header -->
+      <header class="wci-header">
+        <p class="wci-kicker">03 &ensp;/&ensp; Berklee &middot; 2025</p>
+        <h2 class="wci-title">Within Cells Interlinked</h2>
+        <p class="wci-work-type">10-Channel Spatial Composition</p>
+        <p class="wci-desc">
+          A 10-channel electroacoustic work built entirely from the spoken phrase
+          <em>&ldquo;within cells interlinked&rdquo;</em> from <em>Blade Runner 2049</em>.
+          The voice is fragmented, transformed, and reshaped into instrumental material,
+          while the spatial design draws inspiration from the vast sonic world of <em>Dune</em>.
+        </p>
+      </header>
+
+      <!-- Stereo player + diagram -->
+      <div class="wci-main">
+
+        <section class="wci-stereo-section">
+          <div class="wci-track-meta">
+            <span class="wci-track-tag">Stereo Render</span>
+            <span class="wci-track-sub">Web listening version &nbsp;&middot;&nbsp; Headphones recommended</span>
+          </div>
+          <div class="wci-player" id="wci-stereo" data-src="assets/Audio/WithinCellsInterlinked/stereo-rendered.mp3">
+            <audio preload="metadata"></audio>
+            <div class="wci-ctrl-row">
+              <button class="wci-play" aria-label="Play / pause stereo render">
+                <span class="wci-icon-play">&#9654;</span>
+                <span class="wci-icon-pause" hidden>&#9646;&#9646;</span>
+              </button>
+              <span class="wci-time">00:00 / --:--</span>
+            </div>
+            <div class="wci-bar" tabindex="0" role="slider" aria-label="Seek">
+              <div class="wci-bar-fill"></div>
+            </div>
+          </div>
+          <p class="wci-format-note">Original format: 10-channel spatial audio</p>
+        </section>
+
+        <aside class="wci-diagram-section">
+          <p class="wci-diagram-label">10-Channel Format</p>
+          <svg class="wci-diagram" viewBox="0 0 280 200" aria-hidden="true">
+            <ellipse cx="140" cy="95" rx="104" ry="70" fill="none" stroke="rgba(242,239,232,0.08)" stroke-width="1"/>
+            <circle cx="140" cy="95" r="3" fill="rgba(242,239,232,0.15)"/>
+            <!-- ch 01–02 front pair (oxblood tint) -->
+            <g class="wci-ch" transform="translate(108,27)"><circle r="13" fill="none" stroke="rgba(140,47,50,0.50)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">01</text></g>
+            <g class="wci-ch" transform="translate(172,27)"><circle r="13" fill="none" stroke="rgba(140,47,50,0.50)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">02</text></g>
+            <!-- ch 03–10 surround -->
+            <g class="wci-ch" transform="translate(225,53)"><circle r="13" fill="none" stroke="rgba(242,239,232,0.16)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">03</text></g>
+            <g class="wci-ch" transform="translate(245,95)"><circle r="13" fill="none" stroke="rgba(242,239,232,0.16)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">04</text></g>
+            <g class="wci-ch" transform="translate(225,137)"><circle r="13" fill="none" stroke="rgba(242,239,232,0.16)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">05</text></g>
+            <g class="wci-ch" transform="translate(172,164)"><circle r="13" fill="none" stroke="rgba(242,239,232,0.16)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">06</text></g>
+            <g class="wci-ch" transform="translate(108,164)"><circle r="13" fill="none" stroke="rgba(242,239,232,0.16)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">07</text></g>
+            <g class="wci-ch" transform="translate(55,137)"><circle r="13" fill="none" stroke="rgba(242,239,232,0.16)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">08</text></g>
+            <g class="wci-ch" transform="translate(35,95)"><circle r="13" fill="none" stroke="rgba(242,239,232,0.16)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">09</text></g>
+            <g class="wci-ch" transform="translate(55,53)"><circle r="13" fill="none" stroke="rgba(242,239,232,0.16)" stroke-width="1"/><text class="wci-ch-num" text-anchor="middle" dominant-baseline="central">10</text></g>
+          </svg>
+          <p class="wci-diagram-note">Abstract channel layout &middot; not to scale</p>
+        </aside>
+
+      </div><!-- /.wci-main -->
+
+      <!-- Stems -->
+      <section class="wci-stems-section">
+        <p class="wci-stems-tag">10-Channel Stems</p>
+        <div id="wci-stems-list"></div>
+      </section>
+
+    </div><!-- /.wci-panel -->
+  </div><!-- /#wci-modal -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="script.js"></script>
+  <script src="gallery.js"></script>
+  <script src="audio.js"></script>
+  <script src="hero.js"></script>
+</body>
+</html>
