@@ -14,12 +14,12 @@
 
   // ── Works data ───────────────────────────────────────────────────────────
   var WORKS = [
-    { title:'L-Bow',               year:'2026', category:'systems',
-      desc:'A wearable IMU system that maps bowing gestures to real-time sound processing. It extends the violin’s expressive possibilities without modifying the instrument or bow.',
-      venue:'DAFx 2026 & ICSC 2026', link:null,   hex:'#6B8FAF', image:'assets/Figure/L-Bow.jpg' },
-    { title:'emoChord',            year:'2026', category:'systems',
-      desc:'A native Csound opcode using embedded ONNX Runtime machine learning to generate chord progressions from emotion input.',
-      venue:'ICSC 2026', link:null,   hex:'#4A6E54', image:'assets/Figure/emoChord.png' },
+    { title:’L-Bow’,               year:’2026’, category:’systems’,
+      desc:’A wearable IMU system that maps bowing gestures to real-time sound processing. It extends the violin’s expressive possibilities without modifying the instrument or bow.’,
+      venue:’DAFx 2026 & ICSC 2026’, link:’assets/LBow.pdf’,   hex:’#6B8FAF’, image:’assets/Figure/L-Bow.jpg’ },
+    { title:’emoChord’,            year:’2026’, category:’systems’,
+      desc:’A native Csound opcode using embedded ONNX Runtime machine learning to generate chord progressions from emotion input.’,
+      venue:’ICSC 2026’, link:’assets/emoChord.pdf’,   hex:’#4A6E54’, image:’assets/Figure/emoChord.png’ },
     { title:'Symbol X',            year:'2026', category:'sound',
       desc:'A six-piece work for violin and live electronics built around mathematical symbols and impossible equations. Each section reflects a different social pressure surrounding women, including gaze, prejudice, comparison, anxiety, and the search for balance.',
       venue:'ICSC 2026', link:'https://drive.google.com/file/d/1aRsWuiuuo78p70wuGEUpE5amaRuDt0gY/view?usp=sharing',   hex:'#B09832', image:'assets/Figure/symbolX.jpg', cropX:0.5 },
