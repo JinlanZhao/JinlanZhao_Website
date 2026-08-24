@@ -283,7 +283,7 @@
 
   // ── Camera / pan state ───────────────────────────────────────────────────
   var SPAN    = (WORKS.length - 1) * SPACING;
-  var targetX = SPAN / 2;
+  var targetX = SPACING * 0.8;
   var currX   = targetX;
   camera.position.set(currX, 0, CAM_Z);
 
