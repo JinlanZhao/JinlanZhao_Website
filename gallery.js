@@ -15,8 +15,8 @@
   // ── Works data ───────────────────────────────────────────────────────────
   var WORKS = [
     { title:'L-Bow',               year:'2026', category:'systems',
-      desc:"A wearable IMU system that maps bowing gestures to real-time sound processing. It extends the violin’s expressive possibilities without modifying the instrument or bow.",
-      venue:'DAFx 2026 & ICSC 2026', link:'assets/LBow.pdf',   hex:'#6B8FAF', image:'assets/Figure/L-Bow.jpg' },
+      desc:"A wearable IMU system in a 3D-printed case that maps bowing gestures to real-time sound processing. It extends the violin's expressive possibilities without modifying the instrument or bow.",
+      venue:'DAFx 2026 & ICSC 2026', link:'assets/LBow.pdf',   hex:'#6B8FAF', image:'assets/Figure/LBow1.JPG', cropY:0.45, hoverImage:'assets/Figure/LBow2.JPG', hoverCropY:0.7 },
     { title:'emoChord',            year:'2026', category:'systems',
       desc:'A native Csound opcode using embedded ONNX Runtime machine learning to generate chord progressions from emotion input.',
       venue:'ICSC 2026', link:'assets/emoChord.pdf',   hex:'#4A6E54', image:'assets/Figure/emoChord.png' },
@@ -27,7 +27,7 @@
       desc:'A six-piece work for violin and live electronics built around mathematical symbols and impossible equations. Each section reflects a different social pressure surrounding women, including gaze, prejudice, comparison, anxiety, and the search for balance.',
       venue:'ICSC 2026', link:'https://drive.google.com/file/d/1VPtYO-r5OjqXxFiM-Zp41OgIsR1r3tv_/view?usp=sharing',   hex:'#B09832', image:'assets/Figure/symbolX.jpg', cropX:0.5 },
     { title:'Within Cells Interlinked',  year:'2025', category:'sound',
-      desc:'A 10-channel spatial composition work built entirely from the spoken phrase “within cells interlinked” from Blade Runner 2049. The voice is fragmented, transformed, and reshaped into the piece’s instrumental material, while the spatial design draws inspiration from the vast, immersive sonic world of Dune.',
+      desc:"A 10-channel spatial composition work built entirely from the spoken phrase \u201Cwithin cells interlinked\u201D from Blade Runner 2049. The voice is fragmented, transformed, and reshaped into the piece's instrumental material, while the spatial design draws inspiration from the vast, immersive sonic world of Dune.",
       venue:'Berklee',   link:null,   hex:'#8F6B52', image:'assets/Figure/WithinCells.jpg' },
     { title:'Ghost of Tsushima',   year:'2024', category:'sound',
       desc:'Original trailer score — Japanese folk idioms with orchestral tension',
@@ -257,31 +257,41 @@
 
   // ── Load real images where available, swap canvas placeholder ────────────
   var texLoader = new THREE.TextureLoader();
+
+  function coverFit(tex, cropX, cropY) {
+    tex.colorSpace = THREE.SRGBColorSpace;
+    var frameAspect = PW / PH;
+    var imgAspect   = tex.image.width / tex.image.height;
+    if (imgAspect > frameAspect) {
+      var rx = frameAspect / imgAspect;
+      var cx = typeof cropX === 'number' ? cropX : 0;
+      tex.repeat.set(rx, 1);
+      tex.offset.set((1 - rx) * cx, 0);
+    } else {
+      var ry = imgAspect / frameAspect;
+      var cy = typeof cropY === 'number' ? cropY : 0.5;
+      tex.repeat.set(1, ry);
+      tex.offset.set(0, (1 - ry) * cy);
+    }
+    tex.needsUpdate = true;
+  }
+
   frames.forEach(function(fr) {
     if (!fr.work.image || !fr.painting) return;
     texLoader.load(fr.work.image, function(tex) {
-      tex.colorSpace = THREE.SRGBColorSpace;
-      /* Cover-fit: show center crop so image fills frame without distortion */
-      var frameAspect = PW / PH;
-      var imgAspect   = tex.image.width / tex.image.height;
-      if (imgAspect > frameAspect) {
-        /* Image wider than frame — fit height, crop based on cropX (0=left,0.5=center,1=right) */
-        var rx = frameAspect / imgAspect;
-        var cropX = typeof fr.work.cropX === 'number' ? fr.work.cropX : 0;
-        tex.repeat.set(rx, 1);
-        tex.offset.set((1 - rx) * cropX, 0);
-      } else {
-        /* Image taller than frame — fit width, crop top/bottom */
-        var ry = imgAspect / frameAspect;
-        tex.repeat.set(1, ry);
-        tex.offset.set(0, (1 - ry) / 2);
-      }
-      tex.needsUpdate = true;
+      coverFit(tex, fr.work.cropX, fr.work.cropY);
+      fr.defaultTex = tex;
       fr.painting.material.map = tex;
       fr.painting.material.needsUpdate = true;
     }, undefined, function(err) {
       console.error('[gallery] texture failed to load:', fr.work.image, err);
     });
+    if (fr.work.hoverImage) {
+      texLoader.load(fr.work.hoverImage, function(tex) {
+        coverFit(tex, fr.work.cropX, fr.work.hoverCropY);
+        fr.hoverTex = tex;
+      });
+    }
   });
 
   // ── Camera / pan state ───────────────────────────────────────────────────
@@ -355,10 +365,20 @@
     var ni = hits.length ? hits[0].object.userData._index : -1;
 
     if (ni === hovIdx) return;
-    if (hovIdx >= 0 && frames[hovIdx]) frames[hovIdx].group.scale.setScalar(1);
+    if (hovIdx >= 0 && frames[hovIdx]) {
+      frames[hovIdx].group.scale.setScalar(1);
+      if (frames[hovIdx].defaultTex && frames[hovIdx].hoverTex) {
+        frames[hovIdx].painting.material.map = frames[hovIdx].defaultTex;
+        frames[hovIdx].painting.material.needsUpdate = true;
+      }
+    }
     if (ni >= 0 && frames[ni] && frames[ni].group.visible) {
       frames[ni].group.scale.setScalar(1.04);
       wrap.style.cursor = 'pointer';
+      if (frames[ni].hoverTex) {
+        frames[ni].painting.material.map = frames[ni].hoverTex;
+        frames[ni].painting.material.needsUpdate = true;
+      }
     } else {
       wrap.style.cursor = dragging ? 'grabbing' : 'grab';
     }
