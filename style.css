@@ -971,7 +971,8 @@ body {
 }
 
 /* ── Stereo player ── */
-#wci-stereo {
+#wci-stereo,
+#sx-player {
   border-top: 1px solid rgba(242, 239, 232, 0.10);
   padding-top: 18px;
 }
@@ -1129,4 +1130,28 @@ body {
 /* Progress bar revealed when stem is active */
 .wci-stem-progress {
   padding: 0 0 10px 32px;  /* indent aligns bar with stem name */
+}
+
+/* ─── SYMBOL X — overrides ──────────────────────────── */
+#sx-modal .wci-track-tag {
+  color: var(--ivory);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+/* ─── SYMBOL X — Program Notes ──────────────────────── */
+.sx-notes-section {
+  margin-top: 44px;
+  border-top: 1px solid rgba(242, 239, 232, 0.10);
+  padding-top: 36px;
+}
+.sx-notes-intro { margin-bottom: 28px; }
+.sx-note { margin-bottom: 22px; }
+.sx-note:last-child { margin-bottom: 0; }
+.sx-note-title {
+  font-family: var(--mono);
+  font-size: 0.60rem;
+  letter-spacing: 0.10em;
+  color: var(--cream);
+  margin: 0 0 7px;
 }

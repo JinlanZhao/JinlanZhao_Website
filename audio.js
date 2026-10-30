@@ -165,10 +165,45 @@
     if (listEl) buildStems(listEl);
   }
 
+  /* ── Symbol X modal ──────────────────────────────────── */
+  window.openSXModal = function () {
+    var modal = document.getElementById('sx-modal');
+    if (!modal) return;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  function closeSX() {
+    var modal = document.getElementById('sx-modal');
+    if (!modal) return;
+    if (currentPlayer) { currentPlayer.pause(); currentPlayer = null; }
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function initSX() {
+    var modal = document.getElementById('sx-modal');
+    if (!modal) return;
+
+    var closeBtn = document.getElementById('sx-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeSX);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeSX();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeSX();
+    });
+
+    var playerEl = document.getElementById('sx-player');
+    if (playerEl) makePlayer(playerEl);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', function () { init(); initSX(); });
   } else {
-    init();
+    init(); initSX();
   }
 
 })();

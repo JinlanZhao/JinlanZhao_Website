@@ -22,7 +22,7 @@
       venue:'ICSC 2026', link:'assets/emoChord.pdf',   hex:'#4A6E54', image:'assets/Figure/emoChord.png' },
     { title:'Symbol X',            year:'2026', category:'sound',
       desc:'A six-piece work for violin and live electronics built around mathematical symbols and impossible equations. Each section reflects a different social pressure surrounding women, including gaze, prejudice, comparison, anxiety, and the search for balance.',
-      venue:'ICSC 2026', link:'https://drive.google.com/file/d/1aRsWuiuuo78p70wuGEUpE5amaRuDt0gY/view?usp=sharing',   hex:'#B09832', image:'assets/Figure/symbolX.jpg', cropX:0.5 },
+      venue:'ICSC 2026', link:'https://drive.google.com/file/d/1VPtYO-r5OjqXxFiM-Zp41OgIsR1r3tv_/view?usp=sharing',   hex:'#B09832', image:'assets/Figure/symbolX.jpg', cropX:0.5 },
     { title:'Within Cells Interlinked',  year:'2025', category:'sound',
       desc:'A 10-channel spatial composition work built entirely from the spoken phrase “within cells interlinked” from Blade Runner 2049. The voice is fragmented, transformed, and reshaped into the piece’s instrumental material, while the spatial design draws inspiration from the vast, immersive sonic world of Dune.',
       venue:'Berklee',   link:null,   hex:'#8F6B52', image:'assets/Figure/WithinCells.jpg' },
@@ -389,6 +389,11 @@
     /* Within Cells Interlinked has its own audio detail modal */
     if (work.title === 'Within Cells Interlinked') {
       if (typeof window.openWCIModal === 'function') window.openWCIModal();
+      return;
+    }
+    /* Symbol X has its own audio + performance modal */
+    if (work.title === 'Symbol X') {
+      if (typeof window.openSXModal === 'function') window.openSXModal();
       return;
     }
     var m = document.getElementById('work-modal');
