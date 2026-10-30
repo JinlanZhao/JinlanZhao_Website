@@ -20,6 +20,9 @@
     { title:'emoChord',            year:'2026', category:'systems',
       desc:'A native Csound opcode using embedded ONNX Runtime machine learning to generate chord progressions from emotion input.',
       venue:'ICSC 2026', link:'assets/emoChord.pdf',   hex:'#4A6E54', image:'assets/Figure/emoChord.png' },
+    { title:'What the Fingers Hear', year:'2026', category:'systems',
+      desc:'A touch-anchored audio system for blind musicians: touch a measure on an embossed braille score and hear it played back — as a full orchestral mix or broken into individual instrument stems on request.',
+      venue:'', link:null, hex:'#4A5E6E', image:'assets/Figure/wtfh.jpg' },
     { title:'Symbol X',            year:'2026', category:'sound',
       desc:'A six-piece work for violin and live electronics built around mathematical symbols and impossible equations. Each section reflects a different social pressure surrounding women, including gaze, prejudice, comparison, anxiety, and the search for balance.',
       venue:'ICSC 2026', link:'https://drive.google.com/file/d/1VPtYO-r5OjqXxFiM-Zp41OgIsR1r3tv_/view?usp=sharing',   hex:'#B09832', image:'assets/Figure/symbolX.jpg', cropX:0.5 },
@@ -396,6 +399,11 @@
       if (typeof window.openSXModal === 'function') window.openSXModal();
       return;
     }
+    /* What the Fingers Hear has its own project detail modal */
+    if (work.title === 'What the Fingers Hear') {
+      if (typeof window.openWTFHModal === 'function') window.openWTFHModal();
+      return;
+    }
     var m = document.getElementById('work-modal');
     if (!m) return;
     m.querySelector('.wm-category').textContent = work.category;
@@ -406,6 +414,7 @@
     var lk = m.querySelector('.wm-link');
     lk.href = work.link || '#';
     lk.style.display = work.link ? '' : 'none';
+    lk.textContent = work.link && work.link.endsWith('.pdf') ? 'View Paper →' : 'View Project →';
     m.setAttribute('aria-hidden', 'false');
     m.classList.add('active');
   }

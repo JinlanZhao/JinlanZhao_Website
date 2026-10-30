@@ -200,10 +200,40 @@
     if (playerEl) makePlayer(playerEl);
   }
 
+  /* ── What the Fingers Hear modal ────────────────────── */
+  window.openWTFHModal = function () {
+    var modal = document.getElementById('wtfh-modal');
+    if (!modal) return;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  function closeWTFH() {
+    var modal = document.getElementById('wtfh-modal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function initWTFH() {
+    var modal = document.getElementById('wtfh-modal');
+    if (!modal) return;
+    var closeBtn = document.getElementById('wtfh-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeWTFH);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeWTFH();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeWTFH();
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { init(); initSX(); });
+    document.addEventListener('DOMContentLoaded', function () { init(); initSX(); initWTFH(); });
   } else {
-    init(); initSX();
+    init(); initSX(); initWTFH();
   }
 
 })();

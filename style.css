@@ -1132,6 +1132,46 @@ body {
   padding: 0 0 10px 32px;  /* indent aligns bar with stem name */
 }
 
+/* ─── WHAT THE FINGERS HEAR — Project Modal ─────────── */
+.wtfh-body-wrap { margin-bottom: 32px; }
+.wtfh-body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  color: rgba(242, 239, 232, 0.62);
+  line-height: 1.78;
+  margin: 0;
+}
+.wtfh-media { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+.wtfh-figure { margin: 0; }
+.wtfh-fig-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(242, 239, 232, 0.08);
+}
+.wtfh-fig-sm { max-width: 240px; }
+.wtfh-links {
+  border-top: 1px solid rgba(242, 239, 232, 0.10);
+  padding-top: 24px;
+}
+.wtfh-links-label {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.wtfh-link {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: rgba(242, 239, 232, 0.50);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: block;
+}
+.wtfh-link:hover { color: var(--cream); }
+
 /* ─── SYMBOL X — overrides ──────────────────────────── */
 #sx-modal .wci-track-tag {
   color: var(--ivory);
